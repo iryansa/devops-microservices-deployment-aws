@@ -1,0 +1,27 @@
+---
+- name: Node Setup and Cluster Initialization
+  hosts: cluster
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt: update_cache=yes force_apt_get=yes
+
+    - name: Install snapd
+      apt: name=snapd state=present
+
+    - name: Install MicroK8s
+      snap: name=microk8s classic=yes
+
+    - name: Add ubuntu user to microk8s group
+      user: name=ubuntu groups=microk8s append=yes
+
+    - name: Reset connection so group changes take effect
+      meta: reset_connection
+
+    - name: Wait for MicroK8s to be ready
+      command: microk8s status --wait-ready
+      become: false
+
+    - name: Enable MicroK8s Addons (DNS, Ingress)
+      command: microk8s enable dns ingress
+      become: false
