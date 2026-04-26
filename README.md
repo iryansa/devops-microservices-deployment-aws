@@ -1,4 +1,4 @@
-# Project 3: Automated Multi-Tier Application Deployment 🚀
+# Automated Multi-Tier Application Deployment 🚀
 
 ## 📖 Overview
 This repository demonstrates a production-ready, fully automated CI/CD deployment pipeline for a multi-tier microservices application. The project takes a React.js frontend and a FastAPI backend from source code to a live, publicly accessible Amazon EC2 instance with zero manual intervention post-setup.
