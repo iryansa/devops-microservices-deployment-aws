@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ryan9171/backend:d5ed780ee2a8774a3e67babae046cba585fb411b
+        image: ryan9171/backend:1fb5d78965c036998ede5ba72dfb86b6fb8d634b
         ports:
         - containerPort: 8000
 ---
